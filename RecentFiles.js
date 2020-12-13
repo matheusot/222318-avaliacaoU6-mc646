@@ -2,7 +2,7 @@ module.exports = function() {
     const list = []
 
     const add = (file) => {
-        list.push(file)
+        list.unshift(file)
     }
 
     return Object.freeze({
