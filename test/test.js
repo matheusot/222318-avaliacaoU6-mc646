@@ -91,6 +91,23 @@ describe('tests', function() {
                 testObject.add({name: `Project${i}.js`, dateOpened: "2020-12-13 02:04:34"})
             assert.strictEqual(testObject.list.length, 10)
         })
+
+        it('Should have list[0]=proj1 list[1]=proj3 list[2]=proj2 and length=10', function() {
+            const testObject = new RecentFiles()
+            const proj1 = {name: "Project1.js", dateOpened: "2020-12-13 02:04:34"}
+            const proj2 = {name: "Project2.js", dateOpened: "2020-12-13 02:21:43"}
+            const proj3 = {name: "Project3.js", dateOpened: "2020-12-13 02:23:21"}
+            for (let i = 0; i < 100; i++)
+                testObject.add({name: `Proj${i}.js`, dateOpened: "2020-12-13 02:04:34"})
+            testObject.add(proj1)
+            testObject.add(proj2)
+            testObject.add(proj3)
+            testObject.add(proj1)
+            assert.strictEqual(testObject.list.length, 10)
+            assert.strictEqual(testObject.list[0], proj1)
+            assert.strictEqual(testObject.list[1], proj3)
+            assert.strictEqual(testObject.list[2], proj2)
+        })
     })
 
 })
