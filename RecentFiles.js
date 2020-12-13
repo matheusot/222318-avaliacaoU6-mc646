@@ -1,7 +1,7 @@
 module.exports = function() {
     const list = []
 
-    const add = function (file) {
+    const add = (file) => {
         list.push("")
     }
 
