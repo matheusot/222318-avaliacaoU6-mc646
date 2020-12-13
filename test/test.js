@@ -3,7 +3,7 @@
 Lista de Arquivos Recentes:
 + Quando o programa está executando pela primeira vez, essa lista está vazia;
 + Quando um arquivo é aberto, ele é adicionado à lista de arquivos recentes;
-- Se um arquivo aberto já está na lista, este é levado ao topo da lista, sem conter itens duplicados na lista
++ Se um arquivo aberto já está na lista, este é levado ao topo da lista, sem conter itens duplicados na lista
 - Se a lista alcança seu limite (normalmente de 10 a 15 itens na lista), o item mais antigo é removido quando um novo item é adicionado.
 - A lista pode ser esvaziada a qualquer momento
 - A atualização da lista pode ser desabilitada/habilitada. Caso seja desabilitada, os arquivos já existentes ficarão na lista, mas não serão adicionados novos arquivos.
@@ -80,6 +80,16 @@ describe('tests', function() {
             assert.strictEqual(testObject.list[0], proj1)
             assert.strictEqual(testObject.list[1], proj3)
             assert.strictEqual(testObject.list[2], proj2)
+        })
+
+    })
+
+    describe('checkRecentFilesLimit', function() {
+        it('Should have length = 10 after 100 files added', function() {
+            const testObject = new RecentFiles()
+            for (let i = 0; i < 100; i++)
+                testObject.add({name: `Project${i}.js`, dateOpened: "2020-12-13 02:04:34"})
+            assert.strictEqual(testObject.list.length, 10)
         })
     })
 
