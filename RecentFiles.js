@@ -2,8 +2,12 @@ module.exports = function() {
     let list = []
 
     const add = (file) => {
-        if (list.includes(file))
-            list = list.filter( (f) => JSON.stringify(f) !== JSON.stringify(file) )
+        for (let i = 0; i < list.length; i++) {
+            if (JSON.stringify(list[i]) === JSON.stringify(file)) {
+                list.splice(i, 1);
+            }
+        }   
+            
         list.unshift(file)
     }
 
