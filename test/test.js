@@ -42,6 +42,19 @@ describe('tests', function() {
             testObject.add(file)
             assert.strictEqual(testObject.list[0], file)
         })
+
+        it('Should return array[0] = proj3, array[1] = proj2, array[0] = proj1', function() {
+            const testObject = new RecentFiles()
+            const proj1 = {name: "Project1.js", dateOpened: "2020-12-13 02:04:34"};
+            const proj2 = {name: "Project2.js", dateOpened: "2020-12-13 02:21:43"};
+            const proj3 = {name: "Project3.js", dateOpened: "2020-12-13 02:23:21"};
+            testObject.add(proj1)
+            testObject.add(proj2)
+            testObject.add(proj3)
+            assert.strictEqual(testObject.list[0], proj3)
+            assert.strictEqual(testObject.list[1], proj2)
+            assert.strictEqual(testObject.list[2], proj1)
+        })
     })
 
 })
