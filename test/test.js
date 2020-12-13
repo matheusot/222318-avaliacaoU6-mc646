@@ -5,7 +5,7 @@ Lista de Arquivos Recentes:
 + Quando um arquivo é aberto, ele é adicionado à lista de arquivos recentes;
 + Se um arquivo aberto já está na lista, este é levado ao topo da lista, sem conter itens duplicados na lista
 + Se a lista alcança seu limite (normalmente de 10 a 15 itens na lista), o item mais antigo é removido quando um novo item é adicionado.
-- A lista pode ser esvaziada a qualquer momento
++ A lista pode ser esvaziada a qualquer momento
 - A atualização da lista pode ser desabilitada/habilitada. Caso seja desabilitada, os arquivos já existentes ficarão na lista, mas não serão adicionados novos arquivos.
 
 3 principais regras do TDD:
@@ -124,6 +124,23 @@ describe('tests', function() {
             testObject.add(proj1)
             testObject.clear()
             assert.strictEqual(testObject.list.length, 0)
+        })
+    })
+
+    describe('EnableDisableListUpdate', function() {
+        it('Should have length=3 after disabling list update', function() {
+            const testObject = new RecentFiles()
+            const proj1 = {name: "Project1.js", dateOpened: "2020-12-13 02:04:34"}
+            const proj2 = {name: "Project2.js", dateOpened: "2020-12-13 02:21:43"}
+            const proj3 = {name: "Project3.js", dateOpened: "2020-12-13 02:23:21"}
+            testObject.add(proj1)
+            testObject.add(proj2)
+            testObject.add(proj3)
+            testObject.enableUpdate(false)
+            for (let i = 0; i < 100; i++)
+                testObject.add({name: `Proj${i}.js`, dateOpened: "2020-12-13 02:04:34"})
+            testObject.clear()
+            assert.strictEqual(testObject.list.length, 3)
         })
     })
 
