@@ -1,7 +1,7 @@
 /*
 
 Lista de Arquivos Recentes:
-- Quando o programa está executando pela primeira vez, essa lista está vazia;
++ Quando o programa está executando pela primeira vez, essa lista está vazia;
 - Quando um arquivo é aberto, ele é adicionado à lista de arquivos recentes;
 - Se um arquivo aberto já está na lista, este é levado ao topo da lista, sem conter itens duplicados na lista
 - Se a lista alcança seu limite (normalmente de 10 a 15 itens na lista), o item mais antigo é removido quando um novo item é adicionado.
@@ -17,12 +17,20 @@ Commit a cada fase: red, green refactor
 
 */
 
-const assert = require('assert');
-const RecentFiles = require('../RecentFiles');
+const assert = require('assert')
+const RecentFiles = require('../RecentFiles')
 
 describe('testCreateRecentFilesObject', function() {
     it('Should return empty list', function() {
         const testObject = new RecentFiles()
-        assert.strictEqual(testObject.list.length, 0);
-    });
-});
+        assert.strictEqual(testObject.list.length, 0)
+    })
+})
+
+describe('addRecentFilesToObject', function() {
+    it('Should return array with length = 1', function() {
+        const testObject = new RecentFiles()
+        testObject.add({name: "Project1.js", dateOpened: "2020-12-13 02:04:34"})
+        assert.strictEqual(testObject.list.length, 1)
+    })
+})
