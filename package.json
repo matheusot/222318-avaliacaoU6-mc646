@@ -1,0 +1,22 @@
+{
+  "name": "222318-avaliacaou6-mc646",
+  "version": "1.0.0",
+  "description": "Uma feature comum em diferentes aplicações que utilizam arquivos como armazenamento (editores de texto, planilhas, editores gráficos, ...) é a Lista de Arquivos Recentes, que permite abrir mais rapidamente um arquivo recém utilizado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusot/222318-avaliacaoU6-mc646.git"
+  },
+  "author": "Matheus Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheusot/222318-avaliacaoU6-mc646/issues"
+  },
+  "homepage": "https://github.com/matheusot/222318-avaliacaoU6-mc646#readme",
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
+}
