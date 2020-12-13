@@ -11,7 +11,7 @@ module.exports = function() {
     }
 
     const clear = () => {
-        list.splice(0, maxFiles);
+        list.length = 0
     }
 
     return Object.freeze({
