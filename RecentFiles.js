@@ -10,8 +10,13 @@ module.exports = function() {
         list.unshift(file)
     }
 
+    const clear = () => {
+        list.splice(0, maxFiles);
+    }
+
     return Object.freeze({
         add,
+        clear,
         list
     })
 }
