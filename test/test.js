@@ -20,17 +20,28 @@ Commit a cada fase: red, green refactor
 const assert = require('assert')
 const RecentFiles = require('../RecentFiles')
 
-describe('testCreateRecentFilesObject', function() {
-    it('Should return empty list', function() {
-        const testObject = new RecentFiles()
-        assert.strictEqual(testObject.list.length, 0)
-    })
-})
+describe('tests', function() {
 
-describe('addRecentFilesToObject', function() {
-    it('Should return array with length = 1', function() {
-        const testObject = new RecentFiles()
-        testObject.add({name: "Project1.js", dateOpened: "2020-12-13 02:04:34"})
-        assert.strictEqual(testObject.list.length, 1)
+    describe('testCreateRecentFilesObject', function() {
+        it('Should return empty list', function() {
+            const testObject = new RecentFiles()
+            assert.strictEqual(testObject.list.length, 0)
+        })
     })
+
+    describe('addRecentFilesToObject', function() {
+        it('Should return array with length = 1', function() {
+            const testObject = new RecentFiles()
+            testObject.add({name: "Project1.js", dateOpened: "2020-12-13 02:04:34"})
+            assert.strictEqual(testObject.list.length, 1)
+        })
+
+        it('Should return array with first position equal to object {"name": "Project1.js", "dateOpened": "2020-12-13 02:04:34"}', function() {
+            const testObject = new RecentFiles()
+            const file = {name: "Project1.js", dateOpened: "2020-12-13 02:04:34"};
+            testObject.add(file)
+            assert.strictEqual(testObject.list[0], file)
+        })
+    })
+
 })
