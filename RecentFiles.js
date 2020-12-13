@@ -6,9 +6,7 @@ module.exports = function() {
         for (let i = 0; i < list.length; i++)
             if (JSON.stringify(list[i]) === JSON.stringify(file))
                 list.splice(i, 1);
-        if (list.length == maxFiles){
-            list.pop()
-        }
+        if (list.length == maxFiles) list.pop()
         list.unshift(file)
     }
 
