@@ -139,7 +139,6 @@ describe('tests', function() {
             testObject.enableUpdate(false)
             for (let i = 0; i < 100; i++)
                 testObject.add({name: `Proj${i}.js`, dateOpened: "2020-12-13 02:04:34"})
-            testObject.clear()
             assert.strictEqual(testObject.list.length, 3)
         })
     })
